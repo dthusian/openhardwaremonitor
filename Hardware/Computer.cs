@@ -106,7 +106,6 @@ namespace OpenHardwareMonitor.Hardware {
 
       if (fanControllerEnabled) {
         Add(new TBalancer.TBalancerGroup(settings));
-        Add(new Heatmaster.HeatmasterGroup(settings));
       }
 
       if (hddEnabled)
@@ -192,10 +191,8 @@ namespace OpenHardwareMonitor.Hardware {
         if (open && value != fanControllerEnabled) {
           if (value) {
             Add(new TBalancer.TBalancerGroup(settings));
-            Add(new Heatmaster.HeatmasterGroup(settings));
           } else {
             RemoveType<TBalancer.TBalancerGroup>();
-            RemoveType<Heatmaster.HeatmasterGroup>();
           }
         }
         fanControllerEnabled = value;
